@@ -9,6 +9,8 @@ To move the player you use the digital crown. Scroll up and down to move to diff
 
 Avoid the white dots and move for as long as you can
 
+# GIFs!
+
 
 ![Alt text](ReadmeResources/playing.gif?raw=true "playing.gif")
 
