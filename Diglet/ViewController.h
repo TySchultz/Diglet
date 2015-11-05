@@ -1,9 +1,9 @@
 //
 //  ViewController.h
-//  Diglet
+//  WindUp
 //
-//  Created by Ty Schultz on 9/20/15.
-//  Copyright © 2015 Ty Schultz. All rights reserved.
+//  Created by Tyler J Schultz on 6/17/15.
+//  Copyright © 2015 Progressive. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

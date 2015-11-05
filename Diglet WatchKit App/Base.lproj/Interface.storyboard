@@ -1,15 +1,153 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="13E28" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9046" systemVersion="14F27" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Du6-Ky-wxd">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9035"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9013"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
-        <scene sceneID="aou-V4-d1y">
+        <scene sceneID="l11-tb-96s">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider=""/>
+                <controller id="Du6-Ky-wxd" customClass="InterfaceController">
+                    <items>
+                        <group width="1" alignment="center" layout="vertical" id="C9D-d6-Ksx">
+                            <items>
+                                <label alignment="center" text="HighScore:" id="6l4-if-Iiv">
+                                    <fontDescription key="font" type="system" pointSize="16"/>
+                                </label>
+                                <label height="60" alignment="center" verticalAlignment="center" text="100" id="vWw-Is-L9t">
+                                    <fontDescription key="font" type="boldSystem" pointSize="40"/>
+                                </label>
+                            </items>
+                        </group>
+                        <label alignment="center" verticalAlignment="bottom" text="Last Run: 0" id="VIy-ig-M2h">
+                            <fontDescription key="font" type="system" pointSize="16"/>
+                        </label>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Start" id="KaU-Nk-Wrh">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.80611163379999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="startGame" destination="Du6-Ky-wxd" id="MaD-r3-pqX"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="highScore" destination="vWw-Is-L9t" id="oEi-FK-LjH"/>
+                        <outlet property="lastRun" destination="VIy-ig-M2h" id="loU-WI-htu"/>
+                        <outlet property="progressView" destination="C9D-d6-Ksx" id="m0B-f8-Pvr"/>
+                        <outlet property="startButton" destination="KaU-Nk-Wrh" id="kQM-1q-61i"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="220" y="405"/>
+        </scene>
+        <!--PlayGame-->
+        <scene sceneID="IXN-bI-2ce">
+            <objects>
+                <controller identifier="PlayGame" hidesWhenLoading="NO" id="LFG-en-VLO" customClass="PlayingGameInterfaceController">
+                    <items>
+                        <label width="136" alignment="center" verticalAlignment="bottom" text="5" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="Xjs-Qt-AYG">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <group width="1" alignment="left" id="gNs-rN-E40">
+                            <items>
+                                <group width="20" alignment="left" layout="vertical" id="3Eu-Lt-efA">
+                                    <items>
+                                        <group width="20" height="1" alignment="left" layout="vertical" radius="0.0" id="a70-eA-Nrb" userLabel="Column">
+                                            <items>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="XTu-yn-RSt" userLabel="1">
+                                                    <color key="backgroundColor" red="0.23582666029999999" green="1" blue="0.41134612920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </group>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="QFu-IV-KDS" userLabel="2"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="oTx-Hy-bfb" userLabel="3"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="2Lt-v5-eTz" userLabel="4"/>
+                                            </items>
+                                        </group>
+                                        <picker width="20" height="2" alignment="left" style="sequence" id="6Wz-0l-43v">
+                                            <connections>
+                                                <action selector="itemIndex:" destination="LFG-en-VLO" id="RQs-8Y-RxA"/>
+                                            </connections>
+                                        </picker>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" spacing="3" id="jYV-eA-dgK">
+                                    <items>
+                                        <group width="20" height="1" alignment="left" layout="vertical" radius="0.0" id="Sw7-Pf-N9h" userLabel="Column">
+                                            <items>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="5Nt-tg-WYp" userLabel="1"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="cUH-AS-dLo" userLabel="2"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="d3r-d8-e7L" userLabel="3"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="3Ya-zs-Ov8" userLabel="4"/>
+                                            </items>
+                                        </group>
+                                        <group width="20" height="1" alignment="left" layout="vertical" radius="0.0" id="zWG-32-DRb" userLabel="Column">
+                                            <items>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="Zcs-Wg-VsE" userLabel="1"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="dTK-sg-LyB" userLabel="2"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="nDq-Na-3BT" userLabel="3"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="XL7-Sm-i2Q" userLabel="4"/>
+                                            </items>
+                                        </group>
+                                        <group width="20" height="1" alignment="left" layout="vertical" radius="0.0" id="6F6-E8-FxR" userLabel="Column">
+                                            <items>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="EW7-f6-lqo" userLabel="1"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="0MZ-Dg-Ud1" userLabel="2"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="GPt-Xm-hNQ" userLabel="3"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="9dt-Nu-hfm" userLabel="4"/>
+                                            </items>
+                                        </group>
+                                        <group width="20" height="1" alignment="left" layout="vertical" radius="0.0" id="ieY-Z2-ZXP" userLabel="Column">
+                                            <items>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="Xha-7o-KUp" userLabel="1"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="ev1-8f-8wz" userLabel="2"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="2Xs-ui-Vo3" userLabel="3"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="JiN-RM-g5M" userLabel="4"/>
+                                            </items>
+                                        </group>
+                                        <group width="20" height="1" alignment="left" layout="vertical" radius="0.0" id="dVW-4k-aEb" userLabel="Column">
+                                            <items>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="zuf-sQ-Vig" userLabel="1"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="QdA-sn-jdi" userLabel="2"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="L0I-4v-oTm" userLabel="3"/>
+                                                <group width="20" height="32" alignment="center" layout="vertical" radius="10" id="wbv-Bm-ntz" userLabel="4"/>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="A1" destination="5Nt-tg-WYp" id="b7R-9n-nYL"/>
+                        <outlet property="A2" destination="cUH-AS-dLo" id="kew-8M-r4m"/>
+                        <outlet property="A3" destination="d3r-d8-e7L" id="hQh-fh-XXa"/>
+                        <outlet property="A4" destination="3Ya-zs-Ov8" id="Zu7-oV-WxL"/>
+                        <outlet property="B1" destination="Zcs-Wg-VsE" id="dJP-kc-7CW"/>
+                        <outlet property="B2" destination="dTK-sg-LyB" id="ZRA-JA-fDW"/>
+                        <outlet property="B3" destination="nDq-Na-3BT" id="cx3-Ah-1er"/>
+                        <outlet property="B4" destination="XL7-Sm-i2Q" id="CSe-LF-Khp"/>
+                        <outlet property="C1" destination="EW7-f6-lqo" id="3ih-bF-eV0"/>
+                        <outlet property="C2" destination="0MZ-Dg-Ud1" id="A8L-Av-G0V"/>
+                        <outlet property="C3" destination="GPt-Xm-hNQ" id="6hH-xJ-K5A"/>
+                        <outlet property="C4" destination="9dt-Nu-hfm" id="HbZ-uy-hsy"/>
+                        <outlet property="D1" destination="Xha-7o-KUp" id="jev-UD-I1C"/>
+                        <outlet property="D2" destination="ev1-8f-8wz" id="ras-06-ws7"/>
+                        <outlet property="D3" destination="2Xs-ui-Vo3" id="whh-G3-f4L"/>
+                        <outlet property="D4" destination="JiN-RM-g5M" id="Jav-cY-eEj"/>
+                        <outlet property="E1" destination="zuf-sQ-Vig" id="0aA-al-eTY"/>
+                        <outlet property="E2" destination="QdA-sn-jdi" id="EZV-UD-YUA"/>
+                        <outlet property="E3" destination="L0I-4v-oTm" id="4ys-Sj-B0Z"/>
+                        <outlet property="E4" destination="wbv-Bm-ntz" id="eqb-dA-WfS"/>
+                        <outlet property="picker" destination="6Wz-0l-43v" id="mMS-M9-WMs"/>
+                        <outlet property="player0" destination="XTu-yn-RSt" id="WyJ-J2-2Kc"/>
+                        <outlet property="player1" destination="QFu-IV-KDS" id="Xlb-lc-hpV"/>
+                        <outlet property="player2" destination="oTx-Hy-bfb" id="RuF-ax-g4R"/>
+                        <outlet property="player3" destination="2Lt-v5-eTz" id="qJh-4i-17T"/>
+                        <outlet property="scoreLBL" destination="Xjs-Qt-AYG" id="PH7-AU-L3U"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="398"/>
         </scene>
     </scenes>
 </document>
